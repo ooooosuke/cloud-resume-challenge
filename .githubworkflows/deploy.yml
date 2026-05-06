@@ -1,0 +1,34 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにpushされた時に動く
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. GitHubから最新のコードを取得
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. AWS 認証情報の設定
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      # 3. S3 への同期（ファイルをアップロード）
+      - name: S3 Sync
+        run: |
+          aws s3 sync . s3://furuta-resume-prod-2026-unique  --exclude ".git/*" --exclude ".github/*" --exclude "infra/*"
+        # ※「あなたのバケット名」は Terraform で作成したものに書き換えてください
+
+      # 4. CloudFront のキャッシュクリア（即時反映のため）
+      - name: CloudFront Invalidation
+        run: |
+          aws cloudfront create-invalidation --distribution-id E20L37J41UM8Q8 --paths "/*"
+        # ※「あなたのディストリビューションID」は AWS コンソールで確認して書き換えてください
