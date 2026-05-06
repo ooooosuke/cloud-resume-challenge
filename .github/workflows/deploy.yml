@@ -30,5 +30,5 @@ jobs:
       # 4. CloudFront のキャッシュクリア（即時反映のため）
       - name: CloudFront Invalidation
         run: |
-          aws cloudfront create-invalidation --distribution-id E20L37J41UM8Q8 --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E1V3YM67DU9I9P --paths "/*"
         # ※「あなたのディストリビューションID」は AWS コンソールで確認して書き換えてください
