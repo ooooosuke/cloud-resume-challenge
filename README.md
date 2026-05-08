@@ -21,7 +21,15 @@
 | Frontend | HTML5, CSS3 | 
 
 ## 📂 ディレクトリ構成 
-```text . ├── .github/workflows/ # CI/CD パイプライン（deploy.yml） ├── infra/ # Terraform 構成ファイル（.tf） │ ├── provider.tf # AWS プロバイダー設定 │ └── main.tf # S3, CloudFront, Policy の定義 ├── index.html # 履歴書本体（HTML） └── style.css # スタイルシート（CSS） 
+```text
+.
+├── .github/workflows/    # CI/CD パイプライン（deploy.yml）
+├── infra/                # Terraform 構成ファイル（.tf）
+│   ├── provider.tf       # AWS プロバイダー設定
+│   └── main.tf           # S3, CloudFront, Policy の定義
+├── index.html            # 履歴書本体（HTML）
+└── style.css             # スタイルシート（CSS）
+
 
 ## ⚙️ CI/CD パイプラインのフロー 
 1. ローカルで `index.html` または `style.css` を編集。 
