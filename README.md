@@ -29,7 +29,7 @@
 │   └── main.tf           # S3, CloudFront, Policy の定義
 ├── index.html            # 履歴書本体（HTML）
 └── style.css             # スタイルシート（CSS）
-
+```
 
 ## ⚙️ CI/CD パイプラインのフロー 
 1. ローカルで `index.html` または `style.css` を編集。 
