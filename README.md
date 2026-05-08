@@ -1,6 +1,6 @@
 # Cloud Resume Challenge 
 
-- AWS, Terraform, GitHub Actionsを活用した、サーバーレスな履歴書公開プロジェクトです。 手動での構築（ClickOps）を卒業し、Infrastructure as Code (IaC)と CI/CD パイプラインを完全自動化したモダンな構成を採用しています。 
+AWS, Terraform, GitHub Actionsを活用した、サーバーレスな履歴書公開プロジェクトです。 手動での構築（ClickOps）を卒業し、Infrastructure as Code (IaC)と CI/CD パイプラインを完全自動化したモダンな構成を採用しています。 
 
 ## 🚀 プロジェクトの概要 
 このプロジェクトは、静的Webサイト（ポートフォリオ）をAWS上にセキュアかつ高速に配信する仕組みを構築したものです。
@@ -46,28 +46,36 @@
 
 ## 🔧 セットアップと実行 
 
-### 前提条件 - Terraform インストール済み - AWS 認証情報の設定（IAMユーザー: `terraform-user`） 
+### 前提条件
+- Terraform インストール済み
+- AWS 認証情報の設定（IAMユーザー: `terraform-user`）
 
-### 手順 ```powershell # インフラディレクトリへ移動 cd infra # 初期化と実行 terraform init terraform plan terraform apply 
-
+### 手順
+```powershell
+# インフラディレクトリへ移動
+cd infra
+# 初期化と実行
+terraform init
+terraform plan
+terraform apply
+```
 
 ## 🏢 マルチアカウント戦略と認証 (Multi-Account & SSO) 
 本プロジェクトでは、AWS のベストプラクティスに基づき、AWS Organizations を利用したマルチアカウント戦略を採用しています。
 これにより、環境間の完全な分離と、AWS IAM Identity Center (SSO)によるセキュアかつ効率的なアクセス管理を実現しています。 
 | アカウント名 | 役割 | 認証・管理内容 | 
 | :--- | :--- | :--- | 
-| Management Account | 組織統制・支払い | AWS Organizations の管理親アカウント。**IAM Identity Center (SSO)** を有効化し、全環境へのシングルサインオンを一元管理。 | 
-| **CRC_Prod** | 本番環境 | 本番用ワークロード。Terraform + GitHub Actions による CI/CD パイプラインのみが変更権限を持つ。 | 
-| **CRC_Test** | 検証環境 | サンドボックス / ステージング環境。手動による ClickOps 検証や新機能のリサーチに使用。 | 
+| Management_Ac | 組織統制・支払い | AWS Organizations の管理親アカウント。**IAM Identity Center (SSO)** を有効化し、全環境へのシングルサインオンを一元管理。 | 
+| **crc_Prod** | 本番環境 | 本番用ワークロード。Terraform + GitHub Actions による CI/CD パイプラインのみが変更権限を持つ。 | 
+| **crc_Test** | 検証環境 | サンドボックス / ステージング環境。手動による ClickOps 検証や新機能のリサーチに使用。 | 
 
 ### 🔐 認証とセキュリティのポイント 
 - シングルサインオン (SSO): IAM Identity Center を利用することで、1つの認証情報で複数の AWS アカウントへ安全にスイッチロールが可能。 
 - 最小権限の原則: 管理アカウントに直接ログインする機会を最小限に抑え、各環境（Prod/Test）には必要な権限のみを付与した Permission Sets を適用。 
 - ガバナンス: 一括請求 (Consolidated Billing) により、個人プロジェクトとしてのコスト管理を Management Account で透明化。 
 
-
 ## 👨‍💻 作成者
-Ousuke Furuta
-Infrastructure Engineer 
-AWS Certified Solutions Architect – Associate (SAA-C03)
+- Ousuke Furuta
+- Infrastructure Engineer 
+- AWS Certified Solutions Architect – Associate (SAA-C03)
 
