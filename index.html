@@ -4,22 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="crc_home.css">
-    <title>Ousuke F Profile</title>
+    <title>Ousuke F | Portfolio</title>
 </head>
 <body>
-    <div class="profile-container">
-        <img src="IMG_0405.PNG" alt="Ousuke F."class="profile-image">
-        <h1 class="name">Ousuke F</h1>
-        <div class="title">Infrastructure Engineer</div>
-    </div>
-    
-    <nav class="navi">
-        <a href="" class="nav-item">About</a>
-        <a href="https://www.linkedin.com/in/ousuke-furuta-75b3543b1/" class="nav-item">Experience[Linkdin]</a>
-        <a href="https://github.com/ooooosuke" class="nav-item">Project[Github]</a>
-        <a href="https://qiita.com/Foool" class="nav-item">Note[Qiita]</a>
-        <a href="" class="nav-item">Contact</a>
-    </nav>
-    <div class="footer">© 2026 OUSUKE F. ALL RIGHTS RESERVED.</div>
+
+    <!-- スクロールで変形するヘッダー兼ヒーローエリア -->
+    <header id="main-header" class="header">
+        <div class="header-container">
+            <div class="profile-brand">
+                <!-- プロフィール画像 -->
+                <img src="IMG_0405.PNG" alt="Ousuke F." class="header-image">
+                <div class="brand-text">
+                    <h1 class="header-name">Ousuke F</h1>
+                    <span class="header-title">Infrastructure Engineer</span>
+                </div>
+            </div>
+            <!-- ナビゲーション -->
+            <nav class="header-nav">
+                <a href="#about" class="nav-item">About</a>
+                <a href="https://www.linkedin.com/in/ousuke-furuta-75b3543b1/" class="nav-item" target="_blank">Experience</a>
+                <a href="https://github.com/ooooosuke" class="nav-item" target="_blank">Project</a>
+                <a href="https://qiita.com/Foool" class="nav-item" target="_blank">Note</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- 最初の表示領域を確保するためのスペーサー -->
+        <div class="hero-spacer"></div>
+
+        <!-- 01. About Me Section -->
+        <section id="about" class="content-section">
+            <h2 class="section-label">01. About Me</h2>
+            <div class="narrative-content">
+                <div class="story-block">
+                    <h3>The Journey from Fashion to Tech</h3>
+                    <p>私のキャリアはアパレル業界から始まりました。対人スキルの重要性を学ぶ一方で、変化の激しい現代において「自らの技術で価値を創造できる技術者」になりたいという強い思いを抱き、ITの世界へ飛び込みました。当初はJavaによるアプリケーション開発を学んでいましたが、実際に一歩を踏み出したのは、システムの根幹を支えるインフラの現場でした。</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>Discovering the Power of "Unseen" Infrastructure</h3>
+                    <p>現在は、国内の放送設備に関する、障害時一次対応および制作ネットワークの運用業務をしています。一見華やかな放送の裏側には、24時間365日の安定稼働を守る地道で緻密な技術が不可欠です。高校時代から自作PCを組み立て、システムの構造に触れることが好きだった私にとって、この「社会の基盤を支えている」という実感は、技術への興味をさらに加速させるものとなりました。</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>Vision for the Cloud Era</h3>
+                    <p>運用監視の現場で培った「止まらないシステム」への責任感を持ち、現在はクラウドエンジニアへの転身を目指しています。AWSの柔軟性とスケーラビリティに無限の可能性を感じており、将来はIaCやSREの観点から信頼性の高い設計を追求するスペシャリスト、AWS APN Top Engineer として認められる存在になることが私の目標です。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. Certifications Section -->
+        <section id="certifications" class="content-section">
+            <h2 class="section-label">02. Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <span class="cert-date">2026.02</span>
+                    <h4>AWS Certified Solutions Architect – Associate (SAA-C03)</h4>
+                </div>
+                <div class="cert-card">
+                    <span class="cert-date">2025.10</span>
+                    <h4>TechAcademy Java Course Completed</h4>
+                </div>
+                <div class="cert-card status-learning">
+                    <span class="cert-date">Learning</span>
+                    <h4>CCNP ENCOR v1.2</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. Technical Skills Section -->
+        <section id="skills" class="content-section">
+            <h2 class="section-label">03. Technical Skills</h2>
+            <div class="skills-group">
+                <div class="skill-category">
+                    <h5>Cloud & IaC</h5>
+                    <div class="tags">
+                        <span>AWS</span><span>Terraform</span><span>CloudFormation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h5>Monitoring & Network</h5>
+                    <div class="tags">
+                        <span>X-MON</span><span>ACS</span><span>Direct Connect</span><span>Munin</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h5>Development</h5>
+                    <div class="tags">
+                        <span>Java</span><span>Spring Boot</span><span>Shell Scripting</span><span>Git</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        © 2026 OUSUKE F. ALL RIGHTS RESERVED.
+    </footer>
+
+    <!-- スクロールに応じてクラスを切り替えるJavaScript -->
+    <script>
+        window.onscroll = function() {
+            const header = document.getElementById("main-header");
+            // 80px以上スクロールしたら 'shrunk' クラスを付与
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                header.classList.add("shrunk");
+            } else {
+                header.classList.remove("shrunk");
+            }
+        };
+    </script>
+
+    <!-- 訪問者数を表示する要素 -->
+<p>あなたは <span id="counter">loading...</span> 番目の訪問者です！</p>
+<!-- スクリプトの読み込み（bodyの最後） -->
+<script src="main.js"></script>
+
+
 </body>
 </html>
