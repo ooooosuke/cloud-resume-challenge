@@ -281,3 +281,106 @@ body {
     letter-spacing: 1px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+
+
+/* ==========================================
+   SYSTEM OBSERVABILITY SECTION (New Relic)
+   ========================================== */
+.system-monitor-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 24px;
+    background-color: #1e293b; /* ダークグレーの背景 */
+    border: 1px solid #334155;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #f8fafc;
+}
+
+.system-monitor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.system-status-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.system-status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #10b981; /* 稼働中の鮮やかなグリーン */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.system-status-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #10b981;
+}
+
+.system-provider-label {
+    font-size: 12px;
+    color: #94a3b8;
+    font-family: monospace;
+}
+
+.system-monitor-description {
+    margin-bottom: 24px;
+}
+
+.system-monitor-text-primary {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.system-monitor-text-secondary {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+.system-monitor-image-area {
+    position: relative;
+    background-color: #0f172a;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 8px;
+    overflow: hidden;
+}
+
+.system-monitor-screenshot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    filter: brightness(0.95);
+}
+
+/* スマホ対応（レスポンシブ表示） */
+@media (max-width: 640px) {
+    .system-monitor-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .system-provider-label {
+        align-self: flex-end;
+    }
+}

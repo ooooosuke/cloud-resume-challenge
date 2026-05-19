@@ -116,10 +116,30 @@
         };
     </script>
 
-    <!-- 訪問者数を表示する要素 -->
-<p>あなたは <span id="counter">loading...</span> 番目の訪問者です！</p>
-<!-- スクリプトの読み込み（bodyの最後） -->
-<script src="main.js"></script>
+<div class="system-monitor-container">
+    <div class="system-monitor-header">
+        <div class="system-status-wrapper">
+            <span class="system-status-dot"></span>
+            <h3 class="system-status-title">
+                SYSTEM STATUS: ONLINE
+            </h3>
+        </div>
+        <span class="system-provider-label">PROVIDER: AWS × New Relic</span>
+    </div>
+
+    <div class="system-monitor-description">
+        <p class="system-monitor-text-primary">
+            本インフラ環境は、ただ構築するだけでなく継続的な「運用・保守」を見据え、SaaS型オブザーバビリティプラットフォームである <strong>New Relic</strong> と統合しています。
+        </p>
+        <p class="system-monitor-text-secondary">
+            Amazon Kinesis Data Firehose を介した CloudWatch Metric Streams との連携により、API Gateway の応答速度（レイテンシー）や Lambda のエラー率、総リクエスト数を常時モニタリングする NOC（ネットワークオペレーションセンター）ダッシュボードを構築し、本番運用の可視化を実現しています。
+        </p>
+    </div>
+
+    <div class="system-monitor-image-area">
+        <img src="Cloud-Resume-NOC-Dashboard.pdf" alt="New Relic NOC Dashboard" class="system-monitor-screenshot">
+    </div>
+</div>
 
 
 </body>
