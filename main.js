@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     // あなたの API Gateway 呼び出し URL (Chunk 2 で作成したもの)
-    const apiURL = 'https://mxz8dptz41.execute-api.ap-northeast-1.amazonaws.com/prod/getcount';
+    const apiURL = 'https://rkcuxru02m.execute-api.ap-northeast-1.amazonaws.com/prod';
 
     fetch(apiURL, {
         method: 'POST', // Chunk 2 で設定したメソッド
