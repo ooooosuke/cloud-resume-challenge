@@ -464,16 +464,7 @@ body {
     color: #ff9900;
     border: 1px solid rgba(255, 153, 0, 0.2);
 }
-.cert-issuer-tag.cisco {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-}
-.cert-issuer-tag.generic {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text-dim);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
 /* Credlyバッジ遷移ボタン */
 .badge-btn {
     display: inline-flex;
@@ -572,6 +563,230 @@ body {
     color: #10b981;
     text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
 }
+#counter {
+    color: #3b82f6;
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+    font-family: monospace;
+}
+
+/* ==========================================
+   02. CERTIFICATIONS & SYSTEM OBSERVABILITY
+   (EFFICIENT & UNIFIED UI STYLES BY ANTIGRAVITY)
+   ========================================== */
+
+.cert-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.cert-card {
+    background: var(--card-bg);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+/* モバイル表示時のレスポンシブ対応 */
+@media (max-width: 600px) {
+    .cert-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+    }
+    .cert-btn {
+        align-self: flex-start;
+        width: 100% !important;
+    }
+}
+
+/* 🟢 完了系カード (AWS & TechAcademy) : グリーン系のホバー */
+.cert-card.completed-cert:hover {
+    transform: translateY(-5px);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.12),
+                0 0 1px 1px rgba(16, 185, 129, 0.2);
+}
+
+/* 🔵 学習中系カード (CCNP) : ブルー系のホバー */
+.cert-card.learning-cert:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.12),
+                0 0 1px 1px rgba(59, 130, 246, 0.2);
+}
+
+.cert-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.cert-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.cert-issuer-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cert-issuer-tag.aws {
+    background: rgba(255, 153, 0, 0.1);
+    color: #ff9900;
+    border: 1px solid rgba(255, 153, 0, 0.2);
+}
+
+.cert-issuer-tag.cisco {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.cert-issuer-tag.generic {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-dim);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 🔘 共通ボタン/タグスタイル (サイズと基本スタイルの統一) */
+.cert-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 150px;           /* 横幅を完全統一 */
+    height: 42px;          /* 高さを完全統一 */
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: default;       /* 通常のタグはカーソル通常 */
+}
+
+/* リンク付き（クリック可能）のボタン用拡張スタイル */
+.cert-btn.click-active {
+    cursor: pointer;
+}
+
+/* 🟢 グリーン系 (完了・Verify Badge / Completed) */
+.cert-btn.status-done {
+    background: rgba(16, 185, 129, 0.08);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* 完了系のリンク付きボタンがホバーされたとき */
+.cert-btn.status-done.click-active:hover {
+    background: #10b981;
+    color: #121212;
+    border-color: #10b981;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* 🔵 ブルー系 (進行中・In Progress) */
+.cert-btn.status-ongoing {
+    background: rgba(59, 130, 246, 0.08);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    animation: tagPulse 2s infinite ease-in-out;
+}
+
+/* 進行中のリンク付きボタンがホバーされたとき */
+.cert-btn.status-ongoing.click-active:hover {
+    background: #3b82f6;
+    color: #121212;
+    border-color: #3b82f6;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.cert-btn:hover .btn-arrow {
+    transform: translate(2px, -2px);
+}
+
+@keyframes tagPulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.2);
+    }
+    50% {
+        opacity: 0.85;
+        box-shadow: 0 0 8px 2px rgba(59, 130, 246, 0.1);
+    }
+}
+
+/* ==========================================
+   SYSTEM OBSERVABILITY - REALTIME METRICS
+   ========================================== */
+.system-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .system-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.metric-box {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.metric-label {
+    font-size: 10px;
+    color: #94a3b8;
+    letter-spacing: 1px;
+    font-family: monospace;
+}
+
+.metric-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.metric-value.font-mono {
+    font-family: monospace;
+}
+
+.metric-value.text-green {
+    color: #10b981;
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+}
+
 #counter {
     color: #3b82f6;
     text-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
