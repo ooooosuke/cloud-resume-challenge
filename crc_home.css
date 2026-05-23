@@ -792,3 +792,92 @@ body {
     text-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
     font-family: monospace;
 }
+
+/* --- 🌟 新設：04. Projects 横スクロール (CSSオンリー) 🌟 --- */
+.project-scroll-container {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto; /* 横スクロールを有効化 */
+    scrollbar-width: none; /* Firefox用の非表示 */
+    scroll-snap-type: x mandatory; /* スクロールスナップを有効化 */
+    padding-bottom: 1rem;
+}
+
+/* Chrome, Safari, Edge 用にスクロールバーを非表示にする（ミニマル維持のため） */
+.project-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.project-card {
+    flex: 0 0 85%; /* PCでは1画面に少し次のカードが見える絶妙なサイズ */
+    max-width: 550px;
+    scroll-snap-align: start; /* スクロールが止まる位置をカードの左端に固定 */
+}
+
+.project-card-inner {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    height: 100%;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.3s ease;
+}
+
+.project-card-inner:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.project-title {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.project-desc {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+}
+
+/* mirukyさんリスペクトの箇条書きスタイル */
+.project-bullets {
+    padding-left: 1.2rem;
+    margin: 0 0 2rem 0;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.project-bullets li {
+    margin-bottom: 0.6rem;
+    list-style-type: none;
+    position: relative;
+}
+
+/* 箇条書きの先頭に「▶」をCSSで付与 */
+.project-bullets li::before {
+    content: "▶";
+    position: absolute;
+    left: -1.2rem;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tags span {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-dim);
+}
