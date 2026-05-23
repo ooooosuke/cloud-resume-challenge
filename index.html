@@ -120,9 +120,63 @@
             </div>
         </section>
 
-        <!-- 03. Technical Skills Section -->
+
+        <section id="projects" class="content-section">
+            <h2 class="section-label">03. Projects</h2>
+            <div class="project-scroll-container">
+                
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <h3 class="project-title">web application development with spring boot</h3>
+                        <p class="project-desc">LINEヤフーTechAcademyの最終課題で構築した、従業員・日報管理システム。バックエンドの基礎からエンドツーエンドの開発プロセスを網羅。</p>
+                        <ul class="project-bullets">
+                            <li>Java / Spring Boot を用いた堅牢なMVCアーキテクチャの実装</li>
+                            <li>RDBMSの設計およびデータ永続化（CRUD処理）の実装</li>
+                            <li>Spring Securityの認可機能を利用したアクセス制御を実装</li>
+                        </ul>
+                        <div class="project-tags">
+                            <span>Java</span><span>Spring Boot</span><span>Thymeleaf</span><span>MySQL</span><span>Spring Data JPA</span><span>Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <h3 class="project-title">Serverless Portfolio (Cloud Resume Challenge)</h3>
+                        <p class="project-desc">フロントエンドからクラウドインフラ、CI/CDパイプラインまでを完全自動化した、モダンかつ高可用なサーバーレス・ポートフォリオ。</p>
+                        <ul class="project-bullets">
+                            <li>S3 × CloudFront によるセキュアなグローバル静的ホスティングの構築</li>
+                            <li>GitHub Actions を用いたコード変更時の自動ビルド・デプロイ（CI/CD）の実現</li>
+                            <li>インフラのコード化 (IaC) と CI/CD</li>
+                        </ul>
+                        <div class="project-tags">
+                            <span>AWS</span><span>S3</span><span>CloudFront</span><span>Cloudflare</span><span>GitHub Actions</span><span>HTML/CSS/JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <h3 class="project-title">Observability Platform & NOC Dashboard</h3>
+                        <p class="project-desc">本ポートフォリオの安定稼働とパフォーマンスを継続的に「運用・保守」するための、SaaS型オブザーバビリティ環境。</p>
+                        <ul class="project-bullets">
+                            <li>CloudWatch Metric Streams と Kinesis Data Firehose によるリアルタイムメトリクス収集</li>
+                            <li>API Gateway や Lambda の応答速度・エラー率を可視化するNOCダッシュボードの構築</li>
+                            <li>実務での監視運用経験を個人プロジェクトに昇華した「止まらないシステム」の実証</li>
+                        </ul>
+                        <div class="project-tags">
+                            <span>New Relic</span><span>Amazon Kinesis</span><span>NRQL</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+         </section>        
+
+
+        <!-- 04. Technical Skills Section -->
         <section id="skills" class="content-section">
-            <h2 class="section-label">03. Technical Skills</h2>
+            <h2 class="section-label">04. Technical Skills</h2>
             <div class="skills-group">
                 <div class="skill-category">
                     <h5>Cloud & IaC</h5>
@@ -159,6 +213,8 @@
             }
         };
     </script>
+
+
 
 <div class="system-monitor-container">
     <div class="system-monitor-header">
