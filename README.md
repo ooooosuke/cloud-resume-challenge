@@ -67,9 +67,9 @@ terraform apply
 これにより、環境間の完全な分離と、AWS IAM Identity Center (SSO)によるセキュアかつ効率的なアクセス管理を実現しています。 
 | アカウント名 | 役割 | 認証・管理内容 | 
 | :--- | :--- | :--- | 
-| Management_Ac | 組織統制・支払い | AWS Organizations の管理親アカウント。**IAM Identity Center (SSO)** を有効化し、全環境へのシングルサインオンを一元管理。 | 
-| **crc_Prod** | 本番環境 | 本番用ワークロード。Terraform + GitHub Actions による CI/CD パイプラインのみが変更権限を持つ。 | 
-| **crc_Test** | 検証環境 | サンドボックス / ステージング環境。手動による ClickOps 検証や新機能のリサーチに使用。 | 
+| Management_Ac | 組織統制・支払い | AWS Organizations の管理親アカウント。IAM Identity Center (SSO) を有効化し、全環境へのシングルサインオンを一元管理。 | 
+| crc_Prod | 本番環境 | 本番用ワークロード。Terraform + GitHub Actions による CI/CD パイプラインのみが変更権限を持つ。 | 
+| crc_Test | 検証環境 | サンドボックス / ステージング環境。手動による ClickOps 検証や新機能のリサーチに使用。 | 
 
 ### 認証とセキュリティのポイント 
 - シングルサインオン (SSO): IAM Identity Center を利用することで、1つの認証情報で複数の AWS アカウントへ安全にスイッチロールが可能。 
@@ -80,3 +80,6 @@ terraform apply
 - Ousuke Furuta
 - Infrastructure Engineer 
 - AWS Certified Solutions Architect – Associate (SAA-C03)
+
+## References
+- Cloud Resume Challenge Official Website - https://cloudresumechallenge.dev/
