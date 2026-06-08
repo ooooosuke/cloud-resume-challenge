@@ -21,7 +21,15 @@ resource "aws_cloudfront_origin_access_control" "oac" {
   signing_protocol                  = "sigv4"
 }
 
-# 4. CloudFront Distribution
+# 4. 既存の ACM 証明書の参照 (CloudFront 用に us-east-1 で作成されたもの)
+data "aws_acm_certificate" "cert" {
+  provider    = aws.us-east-1
+  domain      = "furuta-resume.com"
+  statuses    = ["ISSUED"]
+  most_recent = true
+}
+
+# 5. CloudFront Distribution
 resource "aws_cloudfront_distribution" "cdn" {
   origin {
     domain_name              = aws_s3_bucket.resume_bucket.bucket_regional_domain_name
@@ -30,7 +38,11 @@ resource "aws_cloudfront_distribution" "cdn" {
   }
 
   enabled             = true
+  price_class         = "PriceClass_All"
+  http_version        = "http2"
   default_root_object = "index.html"
+
+  aliases = ["furuta-resume.com"]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
@@ -52,7 +64,10 @@ resource "aws_cloudfront_distribution" "cdn" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    cloudfront_default_certificate = false
+    acm_certificate_arn            = data.aws_acm_certificate.cert.arn
+    ssl_support_method             = "sni-only"
+    minimum_protocol_version       = "TLSv1.2_2021"
   }
 }
 
